@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Polls Index</title>
-</head>
-<body>
-  
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="text-center mb-3">Poll Questions</h1>
+  {% if latest_question_list %}
+    {% for question in latest_question_list %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <p class="lead">
+            {{ question.question_text }}
+          </p>
+        </div>
+      </div>    
+    {% endfor %}
+  {% else %}
+    <p>No poll available</p>
+  {% endif %}
+{% endblock %}
