@@ -1,4 +1,7 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
+from .models import Question, Choice
+
+# Get questions and display then
 def index(request):
-  return HttpResponse("Hello, world. You're at the poll index.")
+  return render(request, 'polls/index.html')
